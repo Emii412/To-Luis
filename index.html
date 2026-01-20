@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para ti, mi Dudu ❤️</title>
+
+
+  <!-- Conexión con el CSS -->
+  <link rel="stylesheet" href="estilos.css">
+
+  <!-- Fuente bonita -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Para ti, mi Dudu ❤️</h1>
+      <p class="message">
+        Siempre serás mi Duduuu.<br>  
+        Y yo tu Bubuuu.
+      </p>
+      <div class="time-box">
+<img id="gif-amor" src="kiss.gif" alt="Amor infinito">
+<audio id="audio" src="audio.mp3"></audio>
+        <p>Te amaré por</p>
+        <span id="contador" onclick="mostrarGif()">∞</span>
+      </div>
+    </div>
+  </div>
+<script>
+  function mostrarGif() {
+    const audio = document.getElementById("audio");
+    const contador = document.getElementById("contador");
+
+    audio.play();
+    lanzarExplosion(contador);
+    iniciarLluvia();
+
+    contador.style.display = "none";
+  }
+
+  function lanzarExplosion(elemento) {
+    const rect = elemento.getBoundingClientRect();
+
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement("div");
+      heart.className = "pop-heart";
+      heart.innerText = "❤️";
+
+      const x = (Math.random() - 0.5) * 200 + "px";
+      const y = (Math.random() - 0.5) * 200 + "px";
+
+      heart.style.left = rect.left + rect.width / 2 + "px";
+      heart.style.top = rect.top + "px";
+      heart.style.setProperty("--x", x);
+      heart.style.setProperty("--y", y);
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 1000);
+    }
+  }
+
+ function iniciarLluvia() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (28 + Math.random() * 32) + "px";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 300);
+}
+
+</script>
+</body>
+</html>

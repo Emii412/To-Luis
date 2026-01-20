@@ -1,0 +1,130 @@
+/* Estilo general */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #fff0f5);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor central */
+.container {
+  width: 100%;
+  padding: 20px;
+}
+
+/* Tarjeta principal */
+.card {
+  max-width: 420px;
+  background: white;
+  padding: 30px 25px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+margin: 0 auto;
+
+}
+
+/* Título */
+.card h1 {
+  color: #ff5c8a;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Mensaje */
+.message {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+/* Caja del contador */
+.time-box {
+  background: #fff0f5;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+/* Texto del contador */
+.time-box p {
+  margin: 0;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Número grande */
+#contador {
+  display: block;
+  margin-top: 5px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #ff5c8a;
+  font-size: 48px;
+  cursor: pointer;
+}
+
+#gif-kiss {
+   width: 180px;
+  max-width: 80vw;
+  margin: 20px auto 0;
+  display: block;
+}
+/* Corazones */
+.heart {
+  position: fixed;
+  color: #ff5c8a;
+  font-size: 20px;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Explosión tipo serpentina */
+.pop-heart {
+  position: absolute;
+  font-size: 24px;
+  color: #ff5c8a;
+  animation: pop 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0) translate(0,0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2) translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+@media (max-width: 600px) {
+  .card {
+    max-width: 90%;
+    padding: 25px 20px;
+  }
+
+  #contador {
+    font-size: 56px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}
+
